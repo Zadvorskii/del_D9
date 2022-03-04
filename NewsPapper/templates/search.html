@@ -1,0 +1,30 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Post
+{% endblock title %}
+{% load censor %}
+{% block content %}
+<form method="GET">
+    {{ filter.form }} <!-- Форму от фильтров за нас сделает Django. А вот кнопку, увы придётся делать самому -->
+    <input type="submit" value="Найти">
+</form>
+
+<table>
+    <thead>
+    <th>
+    <h3>Название:</h3>
+    </th>
+    </thead>
+      {% for post in filter.qs %}
+    <tr>
+    <td>
+        <a href="{% url 'post_detail' post.id %}">{{ post.heading|censor }}</a>
+    </td>
+</tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'flatpages/default.html' %} 
+
+{% block title %}
+Post
+{% endblock title %}
+{% load censor %}
+{% block content %}
+ <h1>{{ post.get_categoryType_display }}</h1>
+<table>
+    <thead>
+
+            <th>
+                <h3>Heading</h3>
+            </th>
+            <th>
+                <h3>Data</h3>
+            </th>
+            <th>
+                <h3>Text</h3>
+            </th>
+        </thead>
+    <td>
+        {{ post.heading|censor }}
+    </td>
+    <td>
+        {{ post.datetime }}
+    </td>
+    <td>
+        {{ post.text|censor }}
+    </td>
+
+</table>
+{% endblock content %}
