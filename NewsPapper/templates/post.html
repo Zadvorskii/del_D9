@@ -33,7 +33,7 @@
             {{ post.datetime|date:'d M Y, H:m' }}
         </td>
         <td>
-            {{ post.text|truncatewords:20|censor }}
+            {{ post.text|truncatewords:4|censor }}
         </td>
     </tr>
     {% endfor %}
